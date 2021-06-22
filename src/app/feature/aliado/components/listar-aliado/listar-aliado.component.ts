@@ -1,4 +1,7 @@
+import { Aliado } from '@aliado/shared/model/aliado';
+import { AliadoService } from '@aliado/shared/service/aliado.service';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-listar-aliado',
@@ -7,9 +10,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarAliadoComponent implements OnInit {
 
-  constructor() { }
+  public listaAliados: Observable<Aliado[]>;
+
+  constructor(protected aliadoService: AliadoService) { }
 
   ngOnInit(): void {
+    this.init();
+  }
+
+  init = async() => {
+    this.listaAliados = this.aliadoService.consultar();
   }
 
 }
