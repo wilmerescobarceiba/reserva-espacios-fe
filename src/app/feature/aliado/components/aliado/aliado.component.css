@@ -1,9 +1,6 @@
 :host {
-  border: 0 solid #e1e1e1;
-  border-bottom-width: 1px;
-  display: block;
-  height: 48px;
-  padding: 0 16px;
+margin-left: 10px;
+margin-right: 10px;
 }
 
 nav a {
@@ -17,6 +14,10 @@ nav a {
   cursor: pointer;
 }
 
-nav .active {
-  color: #106cc8!important;
+nav a.router-link-active {
+  color: #106cc8;
+}
+
+.my-container{
+  margin: 10px;
 }

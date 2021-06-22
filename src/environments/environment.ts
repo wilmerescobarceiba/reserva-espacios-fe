@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  endpoint: '/prospectos-vida'
+  endpoint: '/reserva-espacios',
+  icon: '/assets/favicon/favicon-DEV.ico'
 };
 
 /*

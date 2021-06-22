@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  endpoint: '/prospectos-vida'
+  endpoint: '/reserva-espacios',
+  icon: '/assets/favicon/favicon-PROD.ico'
 };

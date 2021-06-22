@@ -19,7 +19,10 @@
       ],
       "@shared/*": [
         "src/app/shared/*"
-      ]
+      ],
+      "@aliado/*": [
+        "src/app/feature/aliado/*"
+      ],
     }
   },
   "files": [

@@ -1,6 +1,6 @@
 {
-  "/prospectos-vida": {
-    "target": "http://192.168.1.115:9002",
+  "/reserva-espacios": {
+    "target": "http://192.168.0.12:8100",
     "logLevel": "debug"
   }
 
