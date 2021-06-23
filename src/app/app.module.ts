@@ -11,7 +11,6 @@ import { AliadoModule } from '@aliado/aliado.module';
 
 
 
-
 @NgModule({
   declarations: [
     AppComponent,
