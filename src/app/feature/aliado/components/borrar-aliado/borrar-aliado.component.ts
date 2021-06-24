@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { AliadoService } from '@aliado/shared/service/aliado.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-borrar-aliado',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BorrarAliadoComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  id: number;
+
+  @Output()
+  borradoExitoso = new EventEmitter();
+
+  constructor(protected aliadoService: AliadoService) { }
 
   ngOnInit(): void {
+  }
+
+  borrar = () =>{
+    this.aliadoService.eliminar(this.id).subscribe(
+      ()=>this.borradoExitoso.emit()
+    )
   }
 
 }

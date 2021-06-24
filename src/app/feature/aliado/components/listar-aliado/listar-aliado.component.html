@@ -1,3 +1,5 @@
+<app-crear-aliado (creacionExitosa)="creacionExitosa()"></app-crear-aliado>
+
 <h5>Lista de aliados</h5>
 <div class="card">
   <p-table [value]="listaAliados | async" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
@@ -16,8 +18,7 @@
               <td>{{aliado.nit}}</td>
               <td>{{aliado.nombre}}</td>
               <td>
-                <app-boton-azul [label]="'Editar'"></app-boton-azul>
-                <app-boton-rojo [label]="'Eliminar'"></app-boton-rojo>
+                <app-borrar-aliado [id]="aliado.id" (borradoExitoso)="borradoExitoso()"></app-borrar-aliado>
               </td>
           </tr>
       </ng-template>

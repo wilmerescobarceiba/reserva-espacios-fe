@@ -21,7 +21,7 @@ import { TableModule } from 'primeng/table';
     CommonModule,
     AliadoRoutingModule,
     TableModule,
-    SharedModule,
+    SharedModule
   ]
 })
 export class AliadoModule { }

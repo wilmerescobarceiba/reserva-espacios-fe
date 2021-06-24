@@ -22,4 +22,12 @@ export class ListarAliadoComponent implements OnInit {
     this.listaAliados = this.aliadoService.consultar();
   }
 
+  borradoExitoso = () => {
+    this.listaAliados = this.aliadoService.consultar();
+  }
+
+  creacionExitosa = () => {
+    this.listaAliados = this.aliadoService.consultar();
+  }
+
 }

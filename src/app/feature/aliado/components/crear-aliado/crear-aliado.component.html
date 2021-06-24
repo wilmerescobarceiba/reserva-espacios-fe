@@ -1,2 +1,32 @@
-<!--<app-boton-azul></app-boton-azul>-->
 <app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
+
+<p-dialog (visibleChange)="cerrarModal()" *ngIf="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
+  [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <h3>Registrar producto</h3>
+    <hr>
+    <form [formGroup]="aliadoForm" (ngSubmit)="crear()">
+      <div class="row">
+        <div class="col-sm-2">
+          <label>NIT:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="nitAliado" name="nit" placeholder="NIT del aliado"
+            class="form-control" formControlName="nit">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Nombre:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="nombreAliado" name="nombre" placeholder="Nombre del aliado"
+            class="form-control" formControlName="nombre">
+        </div>
+      </div>
+      <hr>
+      <app-boton-gris [label]="'Cerrar'" (click)="cerrarModal()"></app-boton-gris>
+      <app-boton-azul [label]="'Crear'" [type]="'submit'"></app-boton-azul>
+    </form>
+  </ng-template>
+</p-dialog>
