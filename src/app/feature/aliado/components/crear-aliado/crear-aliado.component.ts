@@ -12,4 +12,8 @@ export class CrearAliadoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  abrirModal = () => {
+    alert('Abrir modal');
+  }
+
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-boton-rojo',
@@ -7,12 +7,14 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class BotonRojoComponent implements OnInit {
 
-  @Input()
-  label: string;
+  @Input() label: string;
+
+  @Output() click = new EventEmitter();
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void { }
+
+  clickEvent = () =>this.click.emit()
 
 }
