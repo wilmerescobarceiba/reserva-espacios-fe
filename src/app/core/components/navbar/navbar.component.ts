@@ -1,11 +1,11 @@
-import { Component, OnInit, Input } from "@angular/core";
-import { MenuItem } from "@core/modelo/menu-item";
-import { environment } from "src/environments/environment";
+import { Component, OnInit, Input } from '@angular/core';
+import { MenuItem } from '@core/modelo/menu-item';
+import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: "app-navbar",
-  templateUrl: "navbar.component.html",
-  styleUrls: ["./navbar.component.css"],
+  selector: 'app-navbar',
+  templateUrl: 'navbar.component.html',
+  styleUrls: ['./navbar.component.css'],
 })
 export class NavbarComponent implements OnInit {
   @Input()
@@ -15,7 +15,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit() {}
 
-  get icon(){
+  get icon() {
     return environment.icon;
   }
 }

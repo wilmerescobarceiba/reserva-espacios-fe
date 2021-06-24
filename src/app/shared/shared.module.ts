@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DialogModule } from 'primeng/dialog';
+import { TableModule } from 'primeng/table';
 import { HttpClientModule } from '@angular/common/http';
 import { MensajeErrorCamposDirective } from './directivas/error-campos/directiva/mensaje-error-campos.directive';
 import { MensajeErrorCamposSubmitDirective } from './directivas/error-campos/directiva/mensaje-error-campos-submit.directive';
@@ -23,11 +24,12 @@ import { BotonGrisComponent } from './components/boton-gris/boton-gris.component
     BotonRojoComponent,
     BotonGrisComponent
   ],
-  imports: [ReactiveFormsModule, FormsModule, DialogModule],
+  imports: [ReactiveFormsModule, FormsModule, DialogModule,TableModule],
   exports: [
     CommonModule,
     HttpClientModule,
     DialogModule,
+    TableModule,
     MensajeErrorCamposDirective,
     MensajeErrorCamposContenedorDirective,
     MensajeErrorCamposSubmitDirective,

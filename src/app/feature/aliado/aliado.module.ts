@@ -7,7 +7,6 @@ import { AliadoComponent } from './components/aliado/aliado.component';
 import { CrearAliadoComponent } from './components/crear-aliado/crear-aliado.component';
 import { BorrarAliadoComponent } from './components/borrar-aliado/borrar-aliado.component';
 import { ListarAliadoComponent } from './components/listar-aliado/listar-aliado.component';
-import { TableModule } from 'primeng/table';
 
 
 @NgModule({
@@ -20,7 +19,6 @@ import { TableModule } from 'primeng/table';
   imports: [
     CommonModule,
     AliadoRoutingModule,
-    TableModule,
     SharedModule
   ]
 })

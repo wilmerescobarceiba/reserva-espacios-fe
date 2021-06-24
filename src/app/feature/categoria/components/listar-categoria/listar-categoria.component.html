@@ -1,0 +1,30 @@
+<app-crear-categoria (creacionExitosa)="creacionExitosa()"></app-crear-categoria>
+
+<h5>Lista de categorias</h5>
+<div class="card">
+  <p-table [value]="listaCategorias | async" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+      currentPageReportTemplate="">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>Id</th>
+              <th>Fotografía</th>
+              <th>Código</th>
+              <th>Nombre</th>
+              <th></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-categoria>
+          <tr>
+              <td>{{categoria.id}}</td>
+              <td>
+                <img [src]="categoria.fotografia" class="img-thumbnail" alt="Imagen de la categoria">
+              </td>
+              <td>{{categoria.codigo}}</td>
+              <td>{{categoria.nombre}}</td>
+              <td>
+                <app-borrar-categoria [id]="categoria.id" (borradoExitoso)="borradoExitoso()"></app-borrar-categoria>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

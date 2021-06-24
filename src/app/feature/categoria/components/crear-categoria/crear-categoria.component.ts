@@ -1,25 +1,25 @@
-import { AliadoService } from "@aliado/shared/service/aliado.service";
 import { Component, EventEmitter, OnInit, Output } from "@angular/core";
+import { CategoriaService } from "../../shared/service/categoria.service";
 import { FormGroup, FormControl, Validators } from "@angular/forms";
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
-const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 50;
+const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
-  selector: "app-crear-aliado",
-  templateUrl: "./crear-aliado.component.html",
-  styleUrls: ["./crear-aliado.component.css"],
+  selector: "app-crear-categoria",
+  templateUrl: "./crear-categoria.component.html",
+  styleUrls: ["./crear-categoria.component.css"],
 })
-export class CrearAliadoComponent implements OnInit {
+export class CrearCategoriaComponent implements OnInit {
+  categoriaForm: FormGroup;
   modalVisible: boolean;
-  aliadoForm: FormGroup;
 
   @Output()
   creacionExitosa = new EventEmitter();
 
-  constructor(protected aliadoService: AliadoService) {}
+  constructor(protected categoriaServices: CategoriaService) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.construirFormularioCategoria();
   }
 
@@ -31,9 +31,9 @@ export class CrearAliadoComponent implements OnInit {
     this.modalVisible = false;
   };
 
-  private construirFormularioCategoria = () => {
-    this.aliadoForm = new FormGroup({
-      nit: new FormControl("", [
+  private construirFormularioCategoria() {
+    this.categoriaForm = new FormGroup({
+      codigo: new FormControl("", [
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
@@ -43,12 +43,16 @@ export class CrearAliadoComponent implements OnInit {
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
       ]),
+      fotografia: new FormControl("", [
+        Validators.required,
+        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+      ]),
     });
-  };
+  }
 
   crear = () => {
-    if (this.aliadoForm.valid) {
-      this.aliadoService.guardar(this.aliadoForm.value).subscribe(
+    if (this.categoriaForm.valid) {
+      this.categoriaServices.guardar(this.categoriaForm.value).subscribe(
         (respuesta) => {
           console.warn(respuesta);
           this.cerrarModal();

@@ -49,7 +49,7 @@ describe('AliadoService', () => {
     req.event(new HttpResponse<any>({body: {'valor':1}}));
   });
 
-  it('deberia eliminar un producto', () => {
+  it('deberia eliminar un categoria', () => {
     service.eliminar(1).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });

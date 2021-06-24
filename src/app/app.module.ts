@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from '@home/home.component';
-import { ProductoModule } from '@producto/producto.module';
+import { CategoriaModule } from '@categoria/categoria.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AliadoModule } from '@aliado/aliado.module';
@@ -20,7 +20,7 @@ import { AliadoModule } from '@aliado/aliado.module';
     BrowserAnimationsModule,
     BrowserModule,
     AppRoutingModule,
-    ProductoModule,
+    CategoriaModule,
     CoreModule,
     AliadoModule
   ],

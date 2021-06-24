@@ -5,14 +5,14 @@
   <ng-template pTemplate="content">
     <h3>Registrar categoria</h3>
     <hr>
-    <form [formGroup]="aliadoForm" (ngSubmit)="crear()">
+    <form [formGroup]="categoriaForm" (ngSubmit)="crear()">
       <div class="row">
         <div class="col-sm-2">
-          <label>NIT:</label>
+          <label>Código:</label>
         </div>
         <div class="col-sm-4">
-          <input validar type="text" id="nitAliado" name="nit" placeholder="NIT del aliado"
-            class="form-control" formControlName="nit">
+          <input validar type="text" id="codigoCategoria" name="codigo" placeholder="Código de la categoría"
+            class="form-control" formControlName="codigo">
         </div>
       </div>
       <div class="row">
@@ -20,8 +20,17 @@
           <label>Nombre:</label>
         </div>
         <div class="col-sm-4">
-          <input validar type="text" id="nombreAliado" name="nombre" placeholder="Nombre del aliado"
+          <input validar type="text" id="nombreCategoria" name="nombre" placeholder="Nombre de la categoria"
             class="form-control" formControlName="nombre">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Fotografía:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="fotografiaCategoria" name="fotografia" placeholder="Fotografía de la categoria"
+            class="form-control" formControlName="fotografia">
         </div>
       </div>
       <hr>

@@ -1,20 +1,18 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 @Component({
-  selector: 'app-boton-gris',
-  templateUrl: './boton-gris.component.html',
-  styleUrls: ['./boton-gris.component.css']
+  selector: "app-boton-gris",
+  templateUrl: "./boton-gris.component.html",
+  styleUrls: ["./boton-gris.component.css"],
 })
 export class BotonGrisComponent implements OnInit {
-
   @Input() label: string;
 
   @Output() click = new EventEmitter();
 
-  constructor() { }
+  constructor() {}
 
-  ngOnInit(): void { }
+  ngOnInit(): void {}
 
-  clickEvent = () =>this.click.emit()
-
+  clickEvent = () => this.click.emit();
 }
