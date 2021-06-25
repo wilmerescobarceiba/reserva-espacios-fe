@@ -49,14 +49,13 @@ export class CrearAliadoComponent implements OnInit {
   crear = () => {
     if (this.aliadoForm.valid) {
       this.aliadoService.guardar(this.aliadoForm.value).subscribe(
-        (respuesta) => {
-          console.warn(respuesta);
+        () => {
           this.cerrarModal();
           this.creacionExitosa.emit();
         },
-        (error) => {
-          console.warn(error);
-          this.cerrarModal();
+        (e) => {
+          if(e['error'] &&  e['error']['mensaje']) alert(e['error']['mensaje']);
+          else alert(e);
         }
       );
     }

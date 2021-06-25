@@ -2,7 +2,9 @@
 
 <h5>Lista de aliados</h5>
 <div class="card">
-  <p-table [value]="listaAliados | async" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+  <p-table [value]="listaAliados | async" [paginator]="true"
+  styleClass="p-datatable-responsive-re"
+      [rows]="5" [showCurrentPageReport]="true"
       currentPageReportTemplate="">
       <ng-template pTemplate="header">
           <tr>

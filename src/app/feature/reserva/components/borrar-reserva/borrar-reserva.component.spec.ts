@@ -3,33 +3,33 @@ import { HttpClientModule } from '@angular/common/http';
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpService } from '@core/services/http.service';
-import { EspacioService } from '@espacio/shared/service/espacio.service';
+import { ReservaService } from '@reserva/shared/service/reserva.service';
 
-import { BorrarEspacioComponent } from './borrar-espacio.component';
+import { BorrarReservaComponent } from './borrar-reserva.component';
 
-describe('BorrarEspacioComponent', () => {
-  let component: BorrarEspacioComponent;
-  let fixture: ComponentFixture<BorrarEspacioComponent>;
-  let espacioService: EspacioService;
+describe('BorrarReservaComponent', () => {
+  let component: BorrarReservaComponent;
+  let fixture: ComponentFixture<BorrarReservaComponent>;
+  let reservaService: ReservaService;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ BorrarEspacioComponent ],
+      declarations: [ BorrarReservaComponent ],
       imports: [
         CommonModule,
         HttpClientModule,
         RouterTestingModule
       ],
-      providers: [EspacioService, HttpService],
+      providers: [ReservaService, HttpService],
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BorrarEspacioComponent);
+    fixture = TestBed.createComponent(BorrarReservaComponent);
     component = fixture.componentInstance;
-    espacioService = TestBed.inject(EspacioService);
-    spyOn(espacioService, 'eliminar');
+    reservaService = TestBed.inject(ReservaService);
+    spyOn(reservaService, 'eliminar');
     fixture.detectChanges();
   });
 

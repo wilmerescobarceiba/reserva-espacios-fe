@@ -2,25 +2,33 @@
 
 <h5>Lista de espacios</h5>
 <div class="card">
-  <p-table [value]="listaEspacios | async" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+  <p-table [value]="listaEspacios | async" [paginator]="true"
+  styleClass="p-datatable-responsive-re"
+    [rows]="5" [showCurrentPageReport]="true"
       currentPageReportTemplate="">
       <ng-template pTemplate="header">
           <tr>
+            <th scope = "col"></th>
               <th scope = "col">Id</th>
-              <th scope = "col">Fotografía</th>
-              <th scope = "col">Código</th>
-              <th scope = "col">Nombre</th>
+              <th scope = "col">Código y nombre</th>
+              <th scope = "col">Capacidad</th>
+              <th scope = "col">Costo</th>
+              <th scope = "col">Descripción</th>
+              <th scope = "col">Categoria</th>
               <th scope = "col"></th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-espacio>
           <tr>
+            <td>
+              <img [src]="espacio.fotografia"  width="100" class="img-thumbnail" alt="Imagen de la espacio">
+            </td>
               <td>{{espacio.id}}</td>
-              <td>
-                <img [src]="espacio.fotografia" class="img-thumbnail" alt="Imagen de la espacio">
-              </td>
-              <td>{{espacio.codigo}}</td>
-              <td>{{espacio.nombre}}</td>
+              <td>[{{espacio.codigo}}]: {{espacio.nombre}}</td>
+              <td>{{espacio.capacidad}}</td>
+              <td>{{espacio.costo | number}}</td>
+              <td>{{espacio.descripcion}}</td>
+              <td>{{espacio.idcategoria}}</td>
               <td>
                 <app-borrar-espacio [id]="espacio.id" (borradoExitoso)="borradoExitoso()"></app-borrar-espacio>
               </td>

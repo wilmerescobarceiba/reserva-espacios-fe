@@ -8,6 +8,7 @@ import { CategoriaModule } from '@categoria/categoria.module';
 import { CoreModule } from '@core/core.module';
 import { CookieService } from 'ngx-cookie-service';
 import { AliadoModule } from '@aliado/aliado.module';
+import { ReservaModule } from '@reserva/reserva.module';
 
 
 
@@ -22,7 +23,8 @@ import { AliadoModule } from '@aliado/aliado.module';
     AppRoutingModule,
     CategoriaModule,
     CoreModule,
-    AliadoModule
+    AliadoModule,
+    ReservaModule
   ],
   providers: [CookieService],
     bootstrap: [AppComponent],

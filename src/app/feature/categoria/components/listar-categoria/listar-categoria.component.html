@@ -2,25 +2,25 @@
 
 <h5>Lista de categorias</h5>
 <div class="card">
-  <p-table [value]="listaCategorias | async" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+  <p-table [value]="listaCategorias | async" [paginator]="true"
+      styleClass="p-datatable-responsive-re"
+      [rows]="5" [showCurrentPageReport]="true"
       currentPageReportTemplate="">
       <ng-template pTemplate="header">
           <tr>
+            <th scope = "col"></th>
               <th scope = "col">Id</th>
-              <th scope = "col">Fotografía</th>
-              <th scope = "col">Código</th>
-              <th scope = "col">Nombre</th>
+              <th scope = "col">Código y nombre</th>
               <th scope = "col"></th>
           </tr>
       </ng-template>
       <ng-template pTemplate="body" let-categoria>
           <tr>
+            <td>
+              <img [src]="categoria.fotografia" width="100" class="img-thumbnail" alt="Imagen de la categoria">
+            </td>
               <td>{{categoria.id}}</td>
-              <td>
-                <img [src]="categoria.fotografia" class="img-thumbnail" alt="Imagen de la categoria">
-              </td>
-              <td>{{categoria.codigo}}</td>
-              <td>{{categoria.nombre}}</td>
+              <td>[{{categoria.codigo}}]: {{categoria.nombre}}</td>
               <td>
                 <app-borrar-categoria [id]="categoria.id" (borradoExitoso)="borradoExitoso()"></app-borrar-categoria>
               </td>

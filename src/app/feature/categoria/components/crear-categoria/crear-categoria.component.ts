@@ -53,25 +53,24 @@ export class CrearCategoriaComponent implements OnInit {
   crear = () => {
     if (this.categoriaForm.valid) {
       this.categoriaServices.guardar(this.categoriaForm.value).subscribe(
-        (respuesta) => {
-          console.warn(respuesta);
+        () => {
           this.cerrarModal();
           this.creacionExitosa.emit();
         },
-        (error) => {
-          console.warn(error);
-          this.cerrarModal();
+        (e) => {
+          if(e['error'] &&  e['error']['mensaje']) alert(e['error']['mensaje']);
+          else alert(e);
         }
       );
     }
   };
 
   handleUpload(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.categoriaForm.controls.fotografia.setValue(reader.result);
+    const file1 = event.target.files[0];
+    const reader1 = new FileReader();
+    reader1.readAsDataURL(file1);
+    reader1.onload = () => {
+      this.categoriaForm.controls.fotografia.setValue(reader1.result);
     };
   }
 }

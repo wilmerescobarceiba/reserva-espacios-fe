@@ -50,7 +50,7 @@ describe("CrearCategoriaComponent", () => {
     expect(component.categoriaForm.valid).toBeFalsy();
     component.categoriaForm.controls.codigo.setValue("001");
     component.categoriaForm.controls.nombre.setValue("Categoria test");
-    component.categoriaForm.controls.fotografia.setValue("Fotografia test");
+    component.categoriaForm.controls.fotografiaUpload.setValue("Fotografia test");
     expect(component.categoriaForm.valid).toBeTruthy();
 
     component.crear();

@@ -1,0 +1,57 @@
+<app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
+
+<p-dialog (visibleChange)="cerrarModal()" [(visible)]="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
+  [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <h3>Registrar reserva</h3>
+    <hr>
+    <form [formGroup]="reservaForm" (ngSubmit)="crear()">
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Fecha:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="date" id="fechaReserva" name="fecha"
+            class="form-control" formControlName="fecha">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Aliado:</label>
+        </div>
+        <div class="col-sm-4">
+          <select validar id="aliadoReserva" name="aliado"
+          class="form-control" formControlName="idaliado">
+            <option *ngFor="let al of listaAliados | async" [value]="al.id">[{{al.nit}}]: {{al.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Espacio:</label>
+        </div>
+        <div class="col-sm-4">
+          <select validar id="espacioReserva" name="espacio"
+          class="form-control" formControlName="idespacio">
+            <option *ngFor="let es of listaEspacios | async" [value]="es.id">[{{es.codigo}}]: {{es.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Horario:</label>
+        </div>
+        <div class="col-sm-4">
+          <select validar id="horarioReserva" name="horario"
+          class="form-control" formControlName="idhorario">
+            <option *ngFor="let ho of listaHorarios | async" [value]="ho.id">{{ho.hora}}</option>
+          </select>
+        </div>
+      </div>
+      <hr>
+      <app-boton-gris [label]="'Cerrar'" (click)="cerrarModal()"></app-boton-gris>
+      <app-boton-azul [label]="'Crear'" [type]="'submit'"></app-boton-azul>
+    </form>
+  </ng-template>
+</p-dialog>

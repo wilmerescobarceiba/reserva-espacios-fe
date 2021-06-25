@@ -9,7 +9,8 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent, canActivate: [SecurityGuard]  },
   { path: 'categoria', loadChildren: () => import('./feature/categoria/categoria.module').then(mod => mod.CategoriaModule) },
   { path: 'aliado', loadChildren: () => import('./feature/aliado/aliado.module').then(mod => mod.AliadoModule) },
-  { path: 'espacio', loadChildren: () => import('./feature/espacio/espacio.module').then(mod => mod.EspacioModule) }
+  { path: 'espacio', loadChildren: () => import('./feature/espacio/espacio.module').then(mod => mod.EspacioModule) },
+  { path: 'reserva', loadChildren: () => import('./feature/reserva/reserva.module').then(mod => mod.ReservaModule) }
 
 ];
 

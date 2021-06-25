@@ -1,0 +1,36 @@
+<app-crear-reserva (creacionExitosa)="creacionExitosa()"></app-crear-reserva>
+
+<h5>Lista de reservas</h5>
+<div class="card">
+  <p-table [value]="listaReservas | async" [paginator]="true"
+      styleClass="p-datatable-responsive-re"
+      [rows]="5" [showCurrentPageReport]="true"
+      currentPageReportTemplate="">
+      <ng-template pTemplate="header">
+          <tr>
+              <th scope = "col">Id</th>
+              <th scope = "col">Fecha</th>
+              <th scope = "col">Costo Total</th>
+              <th scope = "col">Aliado</th>
+              <th scope = "col">Espacio</th>
+              <th scope = "col">Horario</th>
+              <th scope = "col"></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-reserva>
+          <tr>
+              <td>{{reserva.id}}</td>
+              <td>
+                {{reserva.fecha}}
+              </td>
+              <td>{{reserva.costototal}}</td>
+              <td>{{reserva.idaliado}}</td>
+              <td>{{reserva.idespacio}}</td>
+              <td>{{reserva.idhorario}}</td>
+              <td>
+                <app-borrar-reserva [id]="reserva.id" (borradoExitoso)="borradoExitoso()"></app-borrar-reserva>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

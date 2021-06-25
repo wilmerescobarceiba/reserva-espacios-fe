@@ -76,20 +76,20 @@ export class CrearEspacioComponent implements OnInit {
           this.cerrarModal();
           this.creacionExitosa.emit();
         },
-        () => {
-          this.cerrarModal();
-          this.creacionExitosa.emit();
+        (e) => {
+          if(e['error'] &&  e['error']['mensaje']) alert(e['error']['mensaje']);
+          else alert(e);
         }
       );
     }
   };
 
   handleUpload(event) {
-    const file = event.target.files[0];
-    const reader = new FileReader();
-    reader.readAsDataURL(file);
-    reader.onload = () => {
-      this.espacioForm.controls.fotografia.setValue(reader.result);
+    const file2 = event.target.files[0];
+    const reader2 = new FileReader();
+    reader2.readAsDataURL(file2);
+    reader2.onload = () => {
+      this.espacioForm.controls.fotografia.setValue(reader2.result);
     };
   }
 }
