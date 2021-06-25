@@ -3,7 +3,7 @@
 <p-dialog (visibleChange)="cerrarModal()" *ngIf="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
   [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
   <ng-template pTemplate="content">
-    <h3>Registrar categoria</h3>
+    <h3>Registrar aliado</h3>
     <hr>
     <form [formGroup]="aliadoForm" (ngSubmit)="crear()">
       <div class="row">
