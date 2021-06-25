@@ -7,8 +7,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 50;
 
 @Component({
   selector: "app-crear-aliado",
-  templateUrl: "./crear-aliado.component.html",
-  styleUrls: ["./crear-aliado.component.css"],
+  templateUrl: "./crear-aliado.component.html"
 })
 export class CrearAliadoComponent implements OnInit {
   modalVisible: boolean;

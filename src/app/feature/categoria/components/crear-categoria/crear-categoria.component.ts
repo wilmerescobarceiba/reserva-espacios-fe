@@ -7,8 +7,7 @@ const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
   selector: "app-crear-categoria",
-  templateUrl: "./crear-categoria.component.html",
-  styleUrls: ["./crear-categoria.component.css"],
+  templateUrl: "./crear-categoria.component.html"
 })
 export class CrearCategoriaComponent implements OnInit {
   categoriaForm: FormGroup;

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MenuItem } from '@core/modelo/menu-item';
 import { environment } from 'src/environments/environment';
 
@@ -7,13 +7,9 @@ import { environment } from 'src/environments/environment';
   templateUrl: 'navbar.component.html',
   styleUrls: ['./navbar.component.css'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
   @Input()
   items: MenuItem[];
-
-  constructor() {}
-
-  ngOnInit() {}
 
   get icon() {
     return environment.icon;

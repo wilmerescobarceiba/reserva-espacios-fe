@@ -6,8 +6,7 @@ import { Categoria } from "@categoria/shared/model/categoria";
 
 @Component({
   selector: "app-listar-categoria",
-  templateUrl: "./listar-categoria.component.html",
-  styleUrls: ["./listar-categoria.component.css"],
+  templateUrl: "./listar-categoria.component.html"
 })
 export class ListarCategoriaComponent implements OnInit {
   public listaCategorias: Observable<Categoria[]>;

@@ -5,8 +5,7 @@ import { Observable } from "rxjs";
 
 @Component({
   selector: "app-listar-aliado",
-  templateUrl: "./listar-aliado.component.html",
-  styleUrls: ["./listar-aliado.component.css"],
+  templateUrl: "./listar-aliado.component.html"
 })
 export class ListarAliadoComponent implements OnInit {
   public listaAliados: Observable<Aliado[]>;
