@@ -27,6 +27,7 @@ export class CrearCategoriaComponent implements OnInit {
   };
 
   cerrarModal = () => {
+    this.categoriaForm.reset();
     this.modalVisible = false;
   };
 
@@ -42,9 +43,9 @@ export class CrearCategoriaComponent implements OnInit {
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
       ]),
-      fotografia: new FormControl("", [
-        Validators.required,
-        Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
+      fotografia: new FormControl("", []),
+      fotografiaUpload: new FormControl(null, [
+        Validators.required
       ]),
     });
   }
@@ -64,4 +65,13 @@ export class CrearCategoriaComponent implements OnInit {
       );
     }
   };
+
+  handleUpload(event) {
+    const file = event.target.files[0];
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.categoriaForm.controls.fotografia.setValue(reader.result);
+    };
+  }
 }

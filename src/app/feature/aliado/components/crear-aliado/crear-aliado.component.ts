@@ -23,6 +23,7 @@ export class CrearAliadoComponent implements OnInit {
   }
 
   abrirModal = () => {
+    this.aliadoForm.reset();
     this.modalVisible = true;
   };
 

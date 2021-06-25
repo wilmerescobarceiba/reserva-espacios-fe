@@ -1,6 +1,6 @@
 <app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
 
-<p-dialog (visibleChange)="cerrarModal()" *ngIf="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
+<p-dialog (visibleChange)="cerrarModal()" [(visible)]="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
   [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
   <ng-template pTemplate="content">
     <h3>Registrar aliado</h3>

@@ -1,0 +1,30 @@
+<app-crear-espacio (creacionExitosa)="creacionExitosa()"></app-crear-espacio>
+
+<h5>Lista de espacios</h5>
+<div class="card">
+  <p-table [value]="listaEspacios | async" [paginator]="true" [rows]="5" [showCurrentPageReport]="true"
+      currentPageReportTemplate="">
+      <ng-template pTemplate="header">
+          <tr>
+              <th scope = "col">Id</th>
+              <th scope = "col">Fotografía</th>
+              <th scope = "col">Código</th>
+              <th scope = "col">Nombre</th>
+              <th scope = "col"></th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-espacio>
+          <tr>
+              <td>{{espacio.id}}</td>
+              <td>
+                <img [src]="espacio.fotografia" class="img-thumbnail" alt="Imagen de la espacio">
+              </td>
+              <td>{{espacio.codigo}}</td>
+              <td>{{espacio.nombre}}</td>
+              <td>
+                <app-borrar-espacio [id]="espacio.id" (borradoExitoso)="borradoExitoso()"></app-borrar-espacio>
+              </td>
+          </tr>
+      </ng-template>
+  </p-table>
+</div>

@@ -1,6 +1,6 @@
 <app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
 
-<p-dialog (visibleChange)="cerrarModal()" *ngIf="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
+<p-dialog (visibleChange)="cerrarModal()" [(visible)]="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
   [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
   <ng-template pTemplate="content">
     <h3>Registrar categoria</h3>
@@ -29,8 +29,8 @@
           <label>Fotografía:</label>
         </div>
         <div class="col-sm-4">
-          <input validar type="text" id="fotografiaCategoria" name="fotografia" placeholder="Fotografía de la categoria"
-            class="form-control" formControlName="fotografia">
+          <input validar type="file" (change)="handleUpload($event)" id="fotografiaUploadCategoria" name="fotografiaUpload"
+            class="form-control" formControlName="fotografiaUpload">
         </div>
       </div>
       <hr>

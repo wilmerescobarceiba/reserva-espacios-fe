@@ -1,0 +1,80 @@
+<app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
+
+<p-dialog (visibleChange)="cerrarModal()" [(visible)]="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
+  [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
+  <ng-template pTemplate="content">
+    <h3>Registrar espacio</h3>
+    <hr>
+    <form [formGroup]="espacioForm" (ngSubmit)="crear()">
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Código:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="codigoEspacio" name="codigo" placeholder="Código del espacio"
+            class="form-control" formControlName="codigo">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Nombre:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="nombreEspacio" name="nombre" placeholder="Nombre del espacio"
+            class="form-control" formControlName="nombre">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Fotografía:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="file" (change)="handleUpload($event)" id="fotografiaEspacio" name="fotografia" placeholder="Fotografía del espacio"
+            class="form-control" formControlName="fotografiaUpload">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Capacidad:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="number" id="capacidadEspacio" name="capacidad" placeholder="Capacidad del espacio"
+            class="form-control" formControlName="capacidad">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Costo:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="number" id="costoEspacio" name="costo" placeholder="Costo del espacio"
+            class="form-control" formControlName="costo">
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Descripción:</label>
+        </div>
+        <div class="col-sm-4">
+          <input validar type="text" id="descripcionEspacio" name="descripcion" placeholder="Descripción del espacio"
+            class="form-control" formControlName="descripcion">
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-sm-2">
+          <label>Categoria:</label>
+        </div>
+        <div class="col-sm-4">
+          <select validar id="categoriaEspacio" name="categoria"
+          class="form-control" formControlName="idcategoria">
+            <option *ngFor="let cat of listaCategorias | async" [value]="cat.id">[{{cat.codigo}}]: {{cat.nombre}}</option>
+          </select>
+        </div>
+      </div>
+      <hr>
+      <app-boton-gris [label]="'Cerrar'" (click)="cerrarModal()"></app-boton-gris>
+      <app-boton-azul [label]="'Crear'" [type]="'submit'"></app-boton-azul>
+    </form>
+  </ng-template>
+</p-dialog>

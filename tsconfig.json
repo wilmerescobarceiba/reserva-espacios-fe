@@ -39,6 +39,9 @@
       "@aliado/*": [
         "src/app/feature/aliado/*"
       ],
+      "@espacio/*": [
+        "src/app/feature/espacio/*"
+      ],
     }
   },
   "angularCompilerOptions": {
