@@ -12,6 +12,7 @@ import { TrackByPipe } from './pipe/track-by.pipe';
 import { BotonPrimarioComponent } from './components/boton-azul/boton-azul.component';
 import { BotonRojoComponent } from './components/boton-rojo/boton-rojo.component';
 import { BotonGrisComponent } from './components/boton-gris/boton-gris.component';
+import { CalendarModule } from 'primeng/calendar';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { BotonGrisComponent } from './components/boton-gris/boton-gris.component
     HttpClientModule,
     DialogModule,
     TableModule,
+    CalendarModule,
     MensajeErrorCamposDirective,
     MensajeErrorCamposContenedorDirective,
     MensajeErrorCamposSubmitDirective,

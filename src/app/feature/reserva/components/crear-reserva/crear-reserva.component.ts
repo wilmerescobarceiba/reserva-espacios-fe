@@ -100,4 +100,8 @@ export class CrearReservaComponent implements OnInit {
       this.reservaForm.controls.fotografia.setValue(reader3.result);
     };
   }
+
+  get minDateValue(){
+    return new Date();
+  }
 }
