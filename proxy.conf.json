@@ -1,5 +1,5 @@
 {
-  "/reserva/*": {
+  "/reserva-espacios/*": {
     "target": "http://localhost:8100",
     "secure": false,
     "logLevel": "debug"
