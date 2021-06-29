@@ -1,4 +1,4 @@
-<app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
+<app-boton-azul id="btnCrear" [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
 
 <p-dialog (visibleChange)="cerrarModal()" [(visible)]="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
   [style]="{width: '50%', maxHeight: '80vh'}" position="center" [modal]="true" styleClass="p-fluid">
@@ -26,7 +26,7 @@
       </div>
       <hr>
       <app-boton-gris [label]="'Cerrar'" (click)="cerrarModal()"></app-boton-gris>
-      <app-boton-azul [label]="'Crear'" [type]="'submit'"></app-boton-azul>
+      <app-boton-azul id="btnCrearFinal" [label]="'Crear'" [type]="'submit'"></app-boton-azul>
     </form>
   </ng-template>
 </p-dialog>

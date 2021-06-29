@@ -1,18 +1,18 @@
 import { by, element } from 'protractor';
 
 export class AliadoPage {
-    private linkCrearAliado = element(by.id('linkCrearAliado'));
-    private linkListarAliados = element(by.id('linkListarAliado'));
+    private btnCrearAliado = element(by.id('btnCrear'));
+    private btnCrearAliadoFinal = element(by.id('btnCrearFinal'));
     private inputNitAliado = element(by.id('nitAliado'));
     private inputNombreAliado = element(by.id('nombreAliado'));
     private listaAliados = element.all(by.css('table'));
 
-    async clickBotonCrearAliados() {
-        await this.linkCrearAliado.click();
+    async clickBotonCrear() {
+      await this.btnCrearAliado.click();
     }
 
-    async clickBotonListarAliados() {
-        await this.linkListarAliados.click();
+    async clickBotonCrearFinal() {
+      await this.btnCrearAliadoFinal.click();
     }
 
     async ingresarNit(nitAliado) {

@@ -8,7 +8,7 @@ import { Horario } from "@horario/shared/model/horario";
 import { AliadoService } from "@aliado/shared/service/aliado.service";
 import { EspacioService } from "@espacio/shared/service/espacio.service";
 import { HorarioService } from "@horario/shared/service/horario.service";
-
+import * as moment from 'moment';
 
 @Component({
   selector: "app-crear-reserva",
@@ -102,6 +102,6 @@ export class CrearReservaComponent implements OnInit {
   }
 
   get minDateValue(){
-    return new Date();
+    return moment(new Date()).format("YYYY-MM-DD")
   }
 }

@@ -19,18 +19,15 @@ describe("workspace-project Aliado", () => {
 
     page.navigateTo();
     navBar.clickBotonAliados();
-    aliado.clickBotonCrearAliados();
+    aliado.clickBotonCrear();
     aliado.ingresarNit(ID_ALIADO);
     aliado.ingresarNombre(DESCRIPCION_ALIADO);
-
-    // Adicionamos las validaciones despues de la creación
-    // expect(<>).toEqual(<>);
+    aliado.clickBotonCrearFinal();
   });
 
   it("Deberia listar aliados", async () => {
     page.navigateTo();
     navBar.clickBotonAliados();
-    aliado.clickBotonListarAliados();
     expect(true).toBe(await aliado.contarAliados() > 0);
   });
 });

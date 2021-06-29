@@ -10,13 +10,13 @@ export class BorrarCategoriaComponent{
   id: number;
 
   @Output()
-  borradoExitoso = new EventEmitter();
+  borradoExitoso = new EventEmitter<boolean>();
 
   constructor(protected categoriaService: CategoriaService) {}
 
   borrar = () => {
     this.categoriaService
       .eliminar(this.id)
-      .subscribe(() => this.borradoExitoso.emit());
+      .subscribe(() => this.borradoExitoso.emit(true));
   };
 }

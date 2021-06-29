@@ -1,4 +1,5 @@
-<app-boton-azul [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
+<app-boton-azul id="btnCrear"  [label]="'Crear'" (click)="abrirModal()"></app-boton-azul>
+
 <p-dialog (visibleChange)="cerrarModal()" [(visible)]="modalVisible" [transitionOptions]="'200ms'" [(visible)]="modalVisible"
   [style]="{width: '50%', maxHeight: '90vh'}" position="center" [modal]="true" styleClass="p-fluid">
   <ng-template pTemplate="content">
@@ -10,8 +11,8 @@
           <label>Fecha:</label>
         </div>
         <div class="col-sm-10">
-            <p-calendar formControlName="fecha" id="fechaReserva" name="fecha" class="form-control"
-            [minDate]="minDateValue"  [readonlyInput]="true" dateFormat="yy-mm-dd" [inline]="true"></p-calendar>
+            <input validar type="date" formControlName="fecha" id="fechaReserva" name="fecha" class="form-control"
+            [min]="minDateValue" [value]="minDateValue" data-date-format="YYYY-MMM-DD"  dateFormat="yy-mm-dd">
         </div>
       </div>
       <div class="row">

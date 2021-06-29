@@ -1,19 +1,14 @@
 import { by, element } from 'protractor';
 
 export class CategoriaPage {
-    private linkCrearCategoria = element(by.id('linkCrearCategoria'));
-    private linkListarCategorias = element(by.id('linkListarCategoria'));
+    private btnCrearCategoria = element(by.id('btnCrear'));
     private inputCodigoCategoria = element(by.id('codigoCategoria'));
     private inputNombreCategoria = element(by.id('nombreCategoria'));
-    private inputFotografiaCategoria = element(by.id('categoriaCategoria'));
+    private inputFotografiaCategoria = element(by.id('fotografiaUploadCategoria'));
     private listaCategorias = element.all(by.css('table'));
 
-    async clickBotonCrearCategorias() {
-        await this.linkCrearCategoria.click();
-    }
-
-    async clickBotonListarCategorias() {
-        await this.linkListarCategorias.click();
+    async clickBotonCrear() {
+      await this.btnCrearCategoria.click();
     }
 
     async ingresarCodigo(codigoCategoria) {
