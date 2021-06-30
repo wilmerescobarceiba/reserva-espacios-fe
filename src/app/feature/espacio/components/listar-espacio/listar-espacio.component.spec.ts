@@ -14,8 +14,8 @@ describe('ListarEspacioComponent', () => {
   let fixture: ComponentFixture<ListarEspacioComponent>;
   let espacioService: EspacioService;
   const listaEspacios: Espacio[] = [
-    new Espacio(1, 'Espacio 1','Espacio 1','Espacio 1',0,10000,'Descripción test', 1),
-    new Espacio(2, 'Espacio 2','Espacio 2','Espacio 2',0,10000,'Descripción test', 1),
+    new Espacio(1, 'Espacio 1', 'Espacio 1', 'Espacio 1', 0, 10000, 'Descripción test', 1),
+    new Espacio(2, 'Espacio 2', 'Espacio 2', 'Espacio 2', 0, 10000, 'Descripción test', 1),
   ];
 
   beforeEach(
@@ -32,11 +32,11 @@ describe('ListarEspacioComponent', () => {
     fixture = TestBed.createComponent(ListarEspacioComponent);
     component = fixture.componentInstance;
     espacioService = TestBed.inject(EspacioService);
-    spyOn(espacioService, "consultar").and.returnValue(of(listaEspacios));
+    spyOn(espacioService, 'consultar').and.returnValue(of(listaEspacios));
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
     component.listaEspacios.subscribe((resultado) => {
       expect(2).toBe(resultado.length);

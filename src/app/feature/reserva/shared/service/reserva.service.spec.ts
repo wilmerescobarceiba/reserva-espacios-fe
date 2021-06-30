@@ -30,7 +30,7 @@ describe('ReservaService', () => {
 
   it('deberia listar reservas', () => {
     const dummyReservas = [
-      new Reserva(1,1,1,1,'2021-06-25',10000), new Reserva(2,2,2,2,'2021-06-25',10000)
+      new Reserva(1, 1, 1, 1, '2021-06-25', 10000), new Reserva(2, 2, 2, 2, '2021-06-25', 10000)
     ];
     service.consultar().subscribe(reservas => {
       expect(reservas.length).toBe(2);
@@ -42,17 +42,17 @@ describe('ReservaService', () => {
   });
 
   it('deberia crear una reserva', () => {
-    const dummyReserva = new Reserva(3,3,3,3,'2021-06-25',10000);
+    const dummyReserva = new Reserva(3, 3, 3, 3, '2021-06-25', 10000);
     service.guardar(dummyReserva).subscribe((respuesta) => {
-      expect(respuesta).toEqual({'valor':3});
+      expect(respuesta).toEqual({valor: 3});
     });
     const req = httpMock.expectOne(apiEndpointReservas);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<Respuesta>({body: {'valor':3}}));
+    req.event(new HttpResponse<Respuesta>({body: {valor: 3}}));
   });
 
   it('deberia eliminar un reserva', () => {
-    const dummyReserva = new Reserva(1,1,1,1,'2021-06-25',10000);
+    const dummyReserva = new Reserva(1, 1, 1, 1, '2021-06-25', 10000);
     service.eliminar(dummyReserva.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });

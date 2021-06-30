@@ -25,7 +25,7 @@ import { CalendarModule } from 'primeng/calendar';
     BotonRojoComponent,
     BotonGrisComponent
   ],
-  imports: [ReactiveFormsModule, FormsModule, DialogModule,TableModule],
+  imports: [ReactiveFormsModule, FormsModule, DialogModule, TableModule],
   exports: [
     CommonModule,
     HttpClientModule,

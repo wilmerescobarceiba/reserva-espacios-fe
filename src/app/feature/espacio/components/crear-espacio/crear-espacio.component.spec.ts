@@ -35,7 +35,7 @@ describe('CrearEspacioComponent', () => {
     component = fixture.componentInstance;
     espacioService = TestBed.inject(EspacioService);
     spyOn(espacioService, 'guardar').and.returnValue(
-      of({valor:1})
+      of({valor: 1})
     );
     fixture.detectChanges();
   });

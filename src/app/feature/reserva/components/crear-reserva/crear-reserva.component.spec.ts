@@ -37,7 +37,7 @@ describe('CrearReservaComponent', () => {
     component = fixture.componentInstance;
     reservaService = TestBed.inject(ReservaService);
     spyOn(reservaService, 'guardar').and.returnValue(
-      of({valor:1})
+      of({valor: 1})
     );
     fixture.detectChanges();
   });

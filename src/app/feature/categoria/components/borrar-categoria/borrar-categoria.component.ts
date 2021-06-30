@@ -1,9 +1,9 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
-import { CategoriaService } from "@categoria/shared/service/categoria.service";
+import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CategoriaService } from '@categoria/shared/service/categoria.service';
 
 @Component({
-  selector: "app-borrar-categoria",
-  templateUrl: "./borrar-categoria.component.html"
+  selector: 'app-borrar-categoria',
+  templateUrl: './borrar-categoria.component.html'
 })
 export class BorrarCategoriaComponent{
   @Input()
@@ -18,5 +18,5 @@ export class BorrarCategoriaComponent{
     this.categoriaService
       .eliminar(this.id)
       .subscribe(() => this.borradoExitoso.emit(true));
-  };
+  }
 }

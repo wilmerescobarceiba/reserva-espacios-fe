@@ -34,7 +34,7 @@ describe('CrearAliadoComponent', () => {
     component = fixture.componentInstance;
     aliadoService = TestBed.inject(AliadoService);
     spyOn(aliadoService, 'guardar').and.returnValue(
-      of({valor:1})
+      of({valor: 1})
     );
     fixture.detectChanges();
   });

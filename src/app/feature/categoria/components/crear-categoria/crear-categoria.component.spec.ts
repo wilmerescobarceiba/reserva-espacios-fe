@@ -1,15 +1,15 @@
-import { waitForAsync, ComponentFixture, TestBed } from "@angular/core/testing";
-import { of, throwError } from "rxjs";
+import { waitForAsync, ComponentFixture, TestBed } from '@angular/core/testing';
+import { of, throwError } from 'rxjs';
 
-import { CrearCategoriaComponent } from "./crear-categoria.component";
-import { CommonModule } from "@angular/common";
-import { HttpClientModule, HttpErrorResponse } from "@angular/common/http";
-import { RouterTestingModule } from "@angular/router/testing";
-import { CategoriaService } from "../../shared/service/categoria.service";
-import { HttpService } from "src/app/core/services/http.service";
-import { ReactiveFormsModule, FormsModule } from "@angular/forms";
+import { CrearCategoriaComponent } from './crear-categoria.component';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule, HttpErrorResponse } from '@angular/common/http';
+import { RouterTestingModule } from '@angular/router/testing';
+import { CategoriaService } from '../../shared/service/categoria.service';
+import { HttpService } from 'src/app/core/services/http.service';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 
-describe("CrearCategoriaComponent", () => {
+describe('CrearCategoriaComponent', () => {
   let component: CrearCategoriaComponent;
   let fixture: ComponentFixture<CrearCategoriaComponent>;
   let categoriaService: CategoriaService;
@@ -37,20 +37,20 @@ describe("CrearCategoriaComponent", () => {
     fixture.detectChanges();
   });
 
-  it("should create", () => {
+  it('should create', () => {
     expect(component).toBeTruthy();
   });
 
-  it("formulario es invalido cuando esta vacio", () => {
+  it('formulario es invalido cuando esta vacio', () => {
     expect(component.categoriaForm.valid).toBeFalsy();
   });
 
-  it("Registrando categoria", () => {
-    spyOn(categoriaService, "guardar").and.returnValue(of({ valor: 1 }));
+  it('Registrando categoria', () => {
+    spyOn(categoriaService, 'guardar').and.returnValue(of({ valor: 1 }));
     expect(component.categoriaForm.valid).toBeFalsy();
-    component.categoriaForm.controls.codigo.setValue("001");
-    component.categoriaForm.controls.nombre.setValue("Categoria test");
-    component.categoriaForm.controls.fotografiaUpload.setValue("Fotografia test");
+    component.categoriaForm.controls.codigo.setValue('001');
+    component.categoriaForm.controls.nombre.setValue('Categoria test');
+    component.categoriaForm.controls.fotografiaUpload.setValue('Fotografia test');
     expect(component.categoriaForm.valid).toBeTruthy();
 
     component.crear();
@@ -59,15 +59,15 @@ describe("CrearCategoriaComponent", () => {
     // TODO adicionar expect
   });
 
-  it("Se obtiene un error en la petición", () => {
+  it('Se obtiene un error en la petición', () => {
     const error = new HttpErrorResponse({
       error: {
-        'nombreExcepcion':'ExcepcionDuplicidad','mensaje':'La categoria ya existe en el sistema'
+        nombreExcepcion: 'ExcepcionDuplicidad', mensaje: 'La categoria ya existe en el sistema'
       },
       status: 400
     });
 
-    spyOn(categoriaService, "guardar").and.returnValue(throwError(error));
+    spyOn(categoriaService, 'guardar').and.returnValue(throwError(error));
     component.crear();
     expect(component.creacionExitosa.emit()).toBeUndefined();
 

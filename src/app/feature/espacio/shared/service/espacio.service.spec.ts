@@ -30,7 +30,7 @@ describe('EspacioService', () => {
 
   it('deberia listar espacios', () => {
     const dummyEspacios = [
-      new Espacio(1, 'Espacio 1','Espacio 1','Espacio 1',0,10000,'Descripción test', 1), new Espacio(2, 'Espacio 2','Espacio 2','Espacio 2',0,10000,'Descripción test', 1)
+      new Espacio(1, 'Espacio 1', 'Espacio 1', 'Espacio 1', 0, 10000, 'Descripción test', 1), new Espacio(2, 'Espacio 2', 'Espacio 2', 'Espacio 2', 0, 10000, 'Descripción test', 1)
     ];
     service.consultar().subscribe(espacios => {
       expect(espacios.length).toBe(2);
@@ -42,17 +42,17 @@ describe('EspacioService', () => {
   });
 
   it('deberia crear una espacio', () => {
-    const dummyEspacio = new Espacio(3, 'Espacio 1','Espacio 1','Espacio 1',0,10000,'Descripción test', 1);
+    const dummyEspacio = new Espacio(3, 'Espacio 1', 'Espacio 1', 'Espacio 1', 0, 10000, 'Descripción test', 1);
     service.guardar(dummyEspacio).subscribe((respuesta) => {
-      expect(respuesta).toEqual({'valor':3});
+      expect(respuesta).toEqual({valor: 3});
     });
     const req = httpMock.expectOne(apiEndpointEspacios);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<Respuesta>({body: {'valor':3}}));
+    req.event(new HttpResponse<Respuesta>({body: {valor: 3}}));
   });
 
   it('deberia eliminar un espacio', () => {
-    const dummyEspacio = new Espacio(1, 'Espacio 1','Espacio 1','Espacio 1',0,10000,'Descripción test', 1);
+    const dummyEspacio = new Espacio(1, 'Espacio 1', 'Espacio 1', 'Espacio 1', 0, 10000, 'Descripción test', 1);
     service.eliminar(dummyEspacio.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });

@@ -42,11 +42,11 @@ describe('AliadoService', () => {
   it('deberia crear un aliado', () => {
     const dummyAliado = new Aliado(1, '123', 'Aliado 1' );
     service.guardar(dummyAliado).subscribe((respuesta) => {
-      expect(respuesta).toEqual({'valor':1});
+      expect(respuesta).toEqual({valor: 1});
     });
     const req = httpMock.expectOne(apiEndpointAliados);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<any>({body: {'valor':1}}));
+    req.event(new HttpResponse<any>({body: {valor: 1}}));
   });
 
   it('deberia eliminar un categoria', () => {

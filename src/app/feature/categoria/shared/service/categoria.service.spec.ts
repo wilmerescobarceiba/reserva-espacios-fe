@@ -30,7 +30,7 @@ describe('CategoriaService', () => {
 
   it('deberia listar categorias', () => {
     const dummyCategorias = [
-      new Categoria(1, 'Categoria 1','Categoria 1','Categoria 1'), new Categoria(2, 'Categoria 2', 'Categoria 2', 'Categoria 2')
+      new Categoria(1, 'Categoria 1', 'Categoria 1', 'Categoria 1'), new Categoria(2, 'Categoria 2', 'Categoria 2', 'Categoria 2')
     ];
     service.consultar().subscribe(categorias => {
       expect(categorias.length).toBe(2);
@@ -42,17 +42,17 @@ describe('CategoriaService', () => {
   });
 
   it('deberia crear una categoria', () => {
-    const dummyCategoria = new Categoria(3, 'Categoria 1','Categoria 1','Categoria 1');
+    const dummyCategoria = new Categoria(3, 'Categoria 1', 'Categoria 1', 'Categoria 1');
     service.guardar(dummyCategoria).subscribe((respuesta) => {
-      expect(respuesta).toEqual({'valor':3});
+      expect(respuesta).toEqual({valor: 3});
     });
     const req = httpMock.expectOne(apiEndpointCategorias);
     expect(req.request.method).toBe('POST');
-    req.event(new HttpResponse<Respuesta>({body: {'valor':3}}));
+    req.event(new HttpResponse<Respuesta>({body: {valor: 3}}));
   });
 
   it('deberia eliminar un categoria', () => {
-    const dummyCategoria = new Categoria(1, 'Categoria 1','Categoria 1','Categoria 1');
+    const dummyCategoria = new Categoria(1, 'Categoria 1', 'Categoria 1', 'Categoria 1');
     service.eliminar(dummyCategoria.id).subscribe((respuesta) => {
       expect(respuesta).toEqual(true);
     });

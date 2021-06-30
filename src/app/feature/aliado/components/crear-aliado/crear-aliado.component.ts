@@ -1,13 +1,13 @@
-import { AliadoService } from "@aliado/shared/service/aliado.service";
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
+import { AliadoService } from '@aliado/shared/service/aliado.service';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 50;
 
 @Component({
-  selector: "app-crear-aliado",
-  templateUrl: "./crear-aliado.component.html"
+  selector: 'app-crear-aliado',
+  templateUrl: './crear-aliado.component.html',
 })
 export class CrearAliadoComponent implements OnInit {
   modalVisible: boolean;
@@ -25,26 +25,26 @@ export class CrearAliadoComponent implements OnInit {
   abrirModal = () => {
     this.aliadoForm.reset();
     this.modalVisible = true;
-  };
+  }
 
   cerrarModal = () => {
     this.modalVisible = false;
-  };
+  }
 
   private construirFormularioCategoria = () => {
     this.aliadoForm = new FormGroup({
-      nit: new FormControl("", [
+      nit: new FormControl('', [
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
       ]),
-      nombre: new FormControl("", [
+      nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
       ]),
     });
-  };
+  }
 
   crear = () => {
     if (this.aliadoForm.valid) {
@@ -54,10 +54,13 @@ export class CrearAliadoComponent implements OnInit {
           this.creacionExitosa.emit();
         },
         (e) => {
-          if(e['error'] &&  e['error']['mensaje']) alert(e['error']['mensaje']);
-          else alert(e);
+          if (e.error && e.error.mensaje) {
+            alert(e.error.mensaje);
+          } else {
+            alert(e);
+          }
         }
       );
     }
-  };
+  }
 }

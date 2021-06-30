@@ -1,8 +1,8 @@
-import { NavbarPage } from "../page/navbar/navbar.po";
-import { AppPage } from "../app.po";
-import { AliadoPage } from "../page/aliado/aliado.po";
+import { NavbarPage } from '../page/navbar/navbar.po';
+import { AppPage } from '../app.po';
+import { AliadoPage } from '../page/aliado/aliado.po';
 
-describe("workspace-project Aliado", () => {
+describe('workspace-project Aliado', () => {
   let page: AppPage;
   let navBar: NavbarPage;
   let aliado: AliadoPage;
@@ -13,9 +13,9 @@ describe("workspace-project Aliado", () => {
     aliado = new AliadoPage();
   });
 
-  it("Deberia crear aliado", () => {
-    const ID_ALIADO = "001";
-    const DESCRIPCION_ALIADO = "Aliado de pruebas";
+  it('Deberia crear aliado', () => {
+    const ID_ALIADO = '001';
+    const DESCRIPCION_ALIADO = 'Aliado de pruebas';
 
     page.navigateTo();
     navBar.clickBotonAliados();
@@ -25,7 +25,7 @@ describe("workspace-project Aliado", () => {
     aliado.clickBotonCrearFinal();
   });
 
-  it("Deberia listar aliados", async () => {
+  it('Deberia listar aliados', async () => {
     page.navigateTo();
     navBar.clickBotonAliados();
     expect(true).toBe(await aliado.contarAliados() > 0);

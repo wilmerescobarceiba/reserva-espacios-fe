@@ -1,16 +1,16 @@
-import { Component, EventEmitter, OnInit, Output } from "@angular/core";
-import { EspacioService } from "../../shared/service/espacio.service";
-import { FormGroup, FormControl, Validators } from "@angular/forms";
-import { Categoria } from "@categoria/shared/model/categoria";
-import { Observable } from "rxjs";
-import { CategoriaService } from "@categoria/shared/service/categoria.service";
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { EspacioService } from '../../shared/service/espacio.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { CategoriaService } from '@categoria/shared/service/categoria.service';
+import { Categoria } from '@categoria/shared/model/categoria';
 
 const LONGITUD_MINIMA_PERMITIDA_TEXTO = 3;
 const LONGITUD_MAXIMA_PERMITIDA_TEXTO = 20;
 
 @Component({
-  selector: "app-crear-espacio",
-  templateUrl: "./crear-espacio.component.html",
+  selector: 'app-crear-espacio',
+  templateUrl: './crear-espacio.component.html',
 })
 export class CrearEspacioComponent implements OnInit {
   espacioForm: FormGroup;
@@ -33,34 +33,34 @@ export class CrearEspacioComponent implements OnInit {
 
   getCategorias = () => {
     this.listaCategorias = this.categoriaService.consultar();
-  };
+  }
 
   abrirModal = () => {
     this.modalVisible = true;
-  };
+  }
 
   cerrarModal = () => {
     this.espacioForm.reset();
     this.modalVisible = false;
-  };
+  }
 
   private construirFormularioEspacio() {
     this.espacioForm = new FormGroup({
-      codigo: new FormControl("", [
+      codigo: new FormControl('', [
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
       ]),
-      nombre: new FormControl("", [
+      nombre: new FormControl('', [
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
       ]),
-      fotografia: new FormControl("", []),
+      fotografia: new FormControl('', []),
       fotografiaUpload: new FormControl(null, [Validators.required]),
       capacidad: new FormControl(null, [Validators.required, Validators.min(0)]),
       costo: new FormControl(null, [Validators.required, Validators.min(0)]),
-      descripcion: new FormControl("", [
+      descripcion: new FormControl('', [
         Validators.required,
         Validators.minLength(LONGITUD_MINIMA_PERMITIDA_TEXTO),
         Validators.maxLength(LONGITUD_MAXIMA_PERMITIDA_TEXTO),
@@ -77,12 +77,15 @@ export class CrearEspacioComponent implements OnInit {
           this.creacionExitosa.emit();
         },
         (e) => {
-          if(e['error'] &&  e['error']['mensaje']) alert(e['error']['mensaje']);
-          else alert(e);
+          if (e.error && e.error.mensaje) {
+            alert(e.error.mensaje);
+          } else {
+            alert(e);
+          }
         }
       );
     }
-  };
+  }
 
   handleUpload(event) {
     const file2 = event.target.files[0];

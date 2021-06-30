@@ -1,12 +1,12 @@
-import { by, element } from "protractor";
+import { by, element } from 'protractor';
 
 export class ReservaPage {
-  private btnCrearReserva = element(by.id("btnCrear"));
-  private inputFechaReserva = element(by.id("fechaReserva"));
-  private inputIdAliadoReserva = element(by.id("aliadoReserva"));
-  private inputIdEspacioReserva = element(by.id("espacioReserva"));
-  private inputIdHorarioReserva = element(by.id("horarioReserva"));
-  private listaReservas = element.all(by.css("table"));
+  private btnCrearReserva = element(by.id('btnCrear'));
+  private inputFechaReserva = element(by.id('fechaReserva'));
+  private inputIdAliadoReserva = element(by.id('aliadoReserva'));
+  private inputIdEspacioReserva = element(by.id('espacioReserva'));
+  private inputIdHorarioReserva = element(by.id('horarioReserva'));
+  private listaReservas = element.all(by.css('table'));
 
   async clickBotonCrear() {
     await this.btnCrearReserva.click();

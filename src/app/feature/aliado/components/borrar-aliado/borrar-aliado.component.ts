@@ -1,9 +1,9 @@
-import { AliadoService } from "@aliado/shared/service/aliado.service";
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { AliadoService } from '@aliado/shared/service/aliado.service';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 
 @Component({
-  selector: "app-borrar-aliado",
-  templateUrl: "./borrar-aliado.component.html"
+  selector: 'app-borrar-aliado',
+  templateUrl: './borrar-aliado.component.html'
 })
 export class BorrarAliadoComponent {
   @Input()
@@ -18,5 +18,5 @@ export class BorrarAliadoComponent {
     this.aliadoService
       .eliminar(this.id)
       .subscribe(() => this.borradoExitoso.emit());
-  };
+  }
 }
